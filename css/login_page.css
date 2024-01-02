@@ -1,0 +1,83 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.login_bg{
+	 width: 100vw;
+	 height: 100vh;
+     background: url("../images/login_img/login_img.jpg") no-repeat center;
+     background-size: 100vw 100vh;
+}    
+
+.login_form{
+	width: 30vw;
+	height: 70vh;
+	background: ghostwhite;
+	position: absolute;
+	top: 80px;
+	left: 15vw;
+	box-shadow: 1px 1px 10px 1px black;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.login_txt:focus{
+   outline: none;
+}
+.login_txt::marker{
+color: #e5e4e2;
+}
+
+.login_txt{
+   width: 98%;
+   height: 40px;
+   margin-top: 50px;
+   border-radius: 10px;
+   border: none;
+   font-size: 20px;
+   background: ghostwhite;
+   box-shadow: 2px 3px 3px 2px #fcae1e;
+   caret-color: #fcae1e;
+    text-indent: 20px;
+}
+.login_txt::placeholder{
+   text-indent: 20px;
+   font-size: 18px;
+   letter-spacing: 5px;
+}
+
+.login_btn{
+ width: 100%;
+ height: 40px;
+ margin-top: 50px;
+ border-radius: 10px;
+ background: #fcae1e; 
+ font-size: 20px;
+ border: #fcae1e;
+ color: white;
+ cursor: pointer;
+}
+a{
+	text-decoration: none;
+	font-size: 20px;
+	position: relative;
+	left: calc(50% - 27px);
+	color:#fcae1e ;
+
+}
+
+@media screen and (max-width:1100px) {
+	.login_form{
+	width: 50vw;
+	top: 80px;
+	left: 5vw;
+}
+}
+
+@media screen and (max-width:500px) {
+	.login_form{
+	width: 50vw;
+	top: 80px;
+	left: 2vw;
+}
+}

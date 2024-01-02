@@ -1,0 +1,70 @@
+@import "../main_page.css";
+@media screen and (max-width: 1350px){
+    .main_product_items{
+     .main_page_items{
+         width: 15.3%;
+       }
+     }
+}
+@media screen and (max-width: 1100px){
+    .main_product_items{
+     .main_page_items{
+         width: 18.3%;
+       }
+     }
+}
+@media screen and (max-width: 1000px){
+  .main_product_items{
+      top: 120px;
+  }
+}
+@media screen and (max-width: 870px){
+        .main_product_items{
+     .main_page_items{
+         width: 23%;
+       }
+     }
+}
+@media screen and (max-width: 760px){
+     .main_product_items{
+     .main_page_items{
+         width: 29.5%;
+       }
+     }
+}
+@media screen and (max-width: 600px){
+     .main_product_items{
+     .main_page_items{
+         width: 29.5%;
+       }
+     }
+}
+@media screen and (max-width: 550px){
+     .main_product_items{
+     .main_page_items{
+         width: 43%;
+       }
+     }
+}
+@media screen and (max-width: 470px){
+    .main_product_items{
+      top: 95px;
+  }
+}
+@media screen and (max-width: 360px){
+    .main_product_items{
+    .main_page_items{
+        height: 300px;
+        .main_original_proprice{
+         font-size: 13px;
+        }
+         .main_proprice_div{
+          font-size: 16px;
+         }
+          .main_proprice_div span{
+          font-size: 10px;
+           color: #A6A5A4;
+         }
+    }
+}
+}

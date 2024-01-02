@@ -1,0 +1,65 @@
+@import "parts_css/main_navbar.css";
+.main_bg{
+  width: calc(100vw-10px);
+}
+  .main_product_items{
+      width: 100%;
+      display: flex;
+      padding-left:10px ;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      cursor: pointer;
+      position: absolute;
+      top: 80px;
+      z-index: -1;
+      .main_page_items{
+        width: 13.2%;
+        height: 320px;
+        border: 1px solid black;
+        margin:10px 0px 0px 14.5px;
+        border-radius: 5px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        img{
+             width: 100%;
+             height: 200px;
+             border-radius: 5px;
+        }
+        img:hover{
+          scale:1.05 1.05;
+        }
+        .main_proname_div{
+         width: 100%;
+         padding: 5px;
+         color: #A6A5A4;
+         font-size: 22px;
+        }
+        .main_original_proprice{
+        font-size: 20px;
+        text-decoration: line-through;
+         color: #A6A5A4;
+        }
+         .main_proprice_div{
+          font-size: 30px;
+          font-weight: bold;
+         }
+         .main_proprice_div span{
+           font-size: 15px;
+           color: #A6A5A4;
+         }
+         .main_proprice_div ,.main_proname_div,.main_original_proprice{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+         }
+      }
+        .no_result{
+            padding: 5px;
+         color: #A6A5A4;
+         font-size: 22px;
+  }
+  }
+
+
+
