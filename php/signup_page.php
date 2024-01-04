@@ -28,7 +28,6 @@
      </div>
 	 
 	 <div class='error_message_div'>
-		All Fields are mandatory
      </div>
 	</div>
       <script type='text/javascript'>
@@ -50,20 +49,31 @@
 				type:'POST',
 				data: serialize,
 				success: function(data){
-                 alert(data);
+					error_massage(data ,3000);
+					if(data='Registered')
+					{
+						setTimeout(()=>{
+							location.href='login_page.php';
+						},1000);
+					}
 				}
 			});
 		}
 		else
 		{
-		    document.querySelector('.error_message_div').style.display = 'block';
+			error_massage('All Fields are mandatory',3000);
+		}
+		 });
+		 function error_massage(error,time)
+		 {
+			document.querySelector('.error_message_div').innerText = error;
+			document.querySelector('.error_message_div').style.display = 'block';
 			document.querySelector('.error_message_div').style.animation = 'fadeInAnimation 1s 1 ease alternate';
 
 			var clr = setTimeout(()=>{
 			document.querySelector('.error_message_div').style.display = 'none';
-		 },3000);
-		}
-		 });
+		 },time);
+		 }
 	   });
 	  </script>
 

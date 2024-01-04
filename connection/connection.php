@@ -41,7 +41,27 @@ class conn{
     	$this->result = $execute->fetch_all(MYSQLI_NUM);
     	return $this->result; 
     }
+    else{
+      return 'Network issues !!!';
+    }
 	}
+
+  public function insert($table , $rows=array() , $where = null){
+            $col = implode(', ',array_keys($rows)); 
+            $val = implode("', '",$rows); 
+      $query = "insert into $table ($col) values('$val')";
+      if($where != null){
+        $query.= " where $where";
+      }
+      $execute = $this->mysqli->query($query);
+      if($execute)
+      {
+        return 'Registered';
+      }else
+      {
+        return 'Not Registered';
+      }
+  }
 
   public function __destruct(){
   	$this->mysqli->close();
@@ -88,14 +108,21 @@ $func->call_loop($data_get);
 }
 if($_POST['exe_file'] == 'signup_file')
 {
-     $filter = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
-  if(!filter_var($filter,FILTER_VALIDATE_EMAIL))
+     $filter_email = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
+  if(!filter_var($filter_email,FILTER_VALIDATE_EMAIL))
   {
-  echo 'please Enter Valid Email' .$filter;
+  echo 'Invalid Email';
   }
-  else{
- echo $filter;
-  }
+ elseif(strlen($_POST['number']) != 10)
+ {
+  echo 'Invalid Mobile Number';
+ }
+ else{
+ echo $conn->insert("users" , ['user_name'=>$_POST['username'],'user_password'=>$_POST['password'],'user_email'=>$filter_email,'user_mobile'=>$_POST['number'],'user_address'=>$_POST['address'],'user_gender'=>$_POST['gender']] , null);
+ }
+//   else{
+//  echo $filter;
+//   }
 
 }
 
