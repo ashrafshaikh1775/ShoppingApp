@@ -35,6 +35,7 @@ class conn{
     {
     	$query .= " limit 0,$limit" ;
     }
+    // return $query;
     $execute = $this->mysqli->query($query);
     if($execute)
     {
@@ -95,9 +96,9 @@ if($_POST['exe_file'] == 'submit_file')
     }
     else
     {
-         $find = 0;
+        $find = 0;
     }
- $search = $_POST['find'];
+ $search = mysqli_real_escape_string($conn->mysqli, $_POST['find']);
  $data_get = $conn->select('main_page' ,'*', null ,"product_price <= ".$find ." Or product_name LIKE '%".$search."%'" ,null ,null);
  $func->call_loop($data_get);
 }
@@ -108,7 +109,12 @@ $func->call_loop($data_get);
 }
 if($_POST['exe_file'] == 'signup_file')
 {
-     $filter_email = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
+  $username =  mysqli_real_escape_string($conn->mysqli, $_POST["username"]);
+  $password =  mysqli_real_escape_string($conn->mysqli, $_POST["password"]);
+  $filter_email = mysqli_real_escape_string($conn->mysqli,filter_var($_POST['email'],FILTER_SANITIZE_EMAIL));
+  $mobile_number = mysqli_real_escape_string($conn->mysqli,$_POST['number']);
+  $address = mysqli_real_escape_string($conn->mysqli,$_POST['address']);
+  
   if(!filter_var($filter_email,FILTER_VALIDATE_EMAIL))
   {
   echo 'Invalid Email';
@@ -118,12 +124,19 @@ if($_POST['exe_file'] == 'signup_file')
   echo 'Invalid Mobile Number';
  }
  else{
- echo $conn->insert("users" , ['user_name'=>$_POST['username'],'user_password'=>$_POST['password'],'user_email'=>$filter_email,'user_mobile'=>$_POST['number'],'user_address'=>$_POST['address'],'user_gender'=>$_POST['gender']] , null);
+ echo $conn->insert("users" , ['user_name'=>$username,'user_password'=>$password,'user_email'=>$filter_email,'user_mobile'=>$mobile_number,'user_address'=>$address,'user_gender'=>$_POST['gender']] , null);
  }
-//   else{
-//  echo $filter;
-//   }
-
+}
+if($_POST['exe_file'] == 'signin')
+{
+  $username =  mysqli_real_escape_string($conn->mysqli, $_POST["username"]);
+  $password =  mysqli_real_escape_string($conn->mysqli, $_POST["password"]);
+  $result = $conn->select('users' , 'user_name , user_password' ,null,"user_name = " ."'$username'" .' And user_password = '."'$password'",null,null);
+  if(count($result) > 0){
+       print_r($result[0][0]);
+  } 
+  else
+  {echo 1;}  
 }
 
 ?>
