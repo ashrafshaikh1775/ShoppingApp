@@ -15,6 +15,7 @@
         include("parts_php/main_navbar.php");
       ?>
       <?php
+     $_POST['exe_file']=null;
      include('../connection/connection.php');
      $data_get = $conn->select('main_page' ,'*', null ,'product_id='. $_GET['id'] ,null ,null);
      ?>

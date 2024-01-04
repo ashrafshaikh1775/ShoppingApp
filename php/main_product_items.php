@@ -1,11 +1,9 @@
-<script src= 'https://code.jquery.com/jquery-3.6.0.min.js' integrity= 'sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='crossorigin='anonymous'> 
-</script>
 <script type='text/javascript'>
                   $(document).ready(function(){ 
                   $.ajax({
                   url : 'connection/connection.php',
                   type : 'POST', 
-                  data : {select_exe:false,find:null},
+                  data : {exe_file:'load_file',find:null},
                   success : function(data){
                         $('.main_product_items').html(data); 
                   }
@@ -16,7 +14,7 @@
               $.ajax({
                   url : 'connection/connection.php',
                   type : 'POST', 
-                  data : {select_exe:true ,find:search_val},
+                  data : {exe_file:'submit_file' ,find:search_val},
                   success : function(data){
                        $('.main_product_items').html(data); 
                   }
@@ -27,7 +25,7 @@
               $.ajax({
                   url : 'connection/connection.php',
                   type : 'POST', 
-                  data : {select_exe:false ,find:null},
+                  data : {exe_file:'load_file' ,find:null},
                   success : function(data){
                        $('.main_product_items').html(data); 
                        $('#main_search').val("");

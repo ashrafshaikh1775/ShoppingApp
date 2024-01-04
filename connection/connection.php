@@ -68,7 +68,7 @@ else
 }
 $conn = new conn();
 $func = new func();
-if($_POST['select_exe'] == 'true')
+if($_POST['exe_file'] == 'submit_file')
 {
     if(is_numeric($_POST['find'])){
        $find = $_POST['find'];
@@ -81,12 +81,22 @@ if($_POST['select_exe'] == 'true')
  $data_get = $conn->select('main_page' ,'*', null ,"product_price <= ".$find ." Or product_name LIKE '%".$search."%'" ,null ,null);
  $func->call_loop($data_get);
 }
-if($_POST['select_exe'] == 'false')
+if($_POST['exe_file'] == 'load_file')
 {
 $data_get = $conn->select('main_page' ,'*', null ,$_POST['find'],null ,null);
 $func->call_loop($data_get);
 }
+if($_POST['exe_file'] == 'signup_file')
+{
+     $filter = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
+  if(!filter_var($filter,FILTER_VALIDATE_EMAIL))
+  {
+  echo 'please Enter Valid Email' .$filter;
+  }
+  else{
+ echo $filter;
+  }
 
-
+}
 
 ?>

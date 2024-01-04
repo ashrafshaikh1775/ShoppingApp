@@ -14,7 +14,7 @@ body{
 /* 	height: 550px; */
 	background: ghostwhite;
 	position: absolute;
-	top: calc((100vh - 90vh) / 2);
+	top: calc((100vh - 85vh) / 2);
 	left: 15vw;
 	box-shadow: 1px 1px 10px 1px black;
    padding: 10px;
@@ -77,7 +77,38 @@ accent-color: orangered;
 cursor: pointer;
 margin-left: calc(20% - 27px);
 }
+.error_message_div{
+	width: 100vw;
+	height :32px;
+	background-color:#fcae1e;
+	/* border:2px solid orangered; */
+	position: absolute;
+	z-index: 1;
+	cursor: pointer;
+    font-size: 23px;
+	color: ghostwhite;
+	text-align: center;
+	display: none;
+    /* animation-iteration-count: infinite; */
 
+    /* animation-fill-mode: backwards; */
+}
+@keyframes fadeInAnimation {
+    0% {
+        transform:translateY(-32px) ;
+    }
+    100% {
+		transform:translateY(1px) ;
+     }
+	}
+/* .error_message{
+	width: 400px;
+	height :300px;
+	margin-top: calc(100vh - 75vh);
+	margin-left: calc(100vw - 65vw);
+	background-color: green;
+	border: red 2px solid;
+} */
 
 @media screen and (max-width:1100px) {
 	.signup_form{
