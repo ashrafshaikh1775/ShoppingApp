@@ -37,7 +37,7 @@
 					success: function(data){
 						if(data.length > 1)
                           {
-                             location.href='../main_page.php?username = ' + data;
+                             location.href='../main_page.php?username=' + data;
 						  }
 						  else
 						  {

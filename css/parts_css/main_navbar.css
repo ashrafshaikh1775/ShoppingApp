@@ -22,7 +22,11 @@ body{
       font-style: italic;
       text-decoration: none;
     }
-
+    .main_cart{
+       background-color: transparent;
+       border:none;
+       outline: none;
+    }
    .main_search_form{
      width: 50%;
      display: flex;
@@ -45,7 +49,9 @@ body{
      border-bottom-right-radius: 10px;
      border-top-right-radius: 10px;
      border: none;
+     outline: none;
     }
+    
 }
 .main_login_div{
   display: flex;
@@ -65,9 +71,41 @@ body{
     }
 }
 }
- h2,.main_login_div,.main_search_btn:hover{
+ h2,.main_login_div,.main_search_btn,.main_cart,.cart_outer_body:hover{
     cursor: pointer;
   }
+  .cart_outer_body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    /* z-index: 1; */
+    display: none;
+}
+.cart_inner_body{
+   width: 600px;
+   height: calc(100% - 200px);
+   background-color: ghostwhite;
+   margin: auto;
+   margin-top: 100px;
+   padding: 10px;
+}
+.cart_close{
+  width: 50px;
+  height: 50px;
+  background-color: #878787;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 45px;
+  font-size: 30px;
+  float: right;
+  color: white;
+}
+.cart_close:hover{
+  color: red;
+  background-color: white;
+  /* box-shadow: -1px -1px 1px 1px rgba(0,0,0,0.3); */
+}
 
 @media screen and (max-width: 1350px){
     .main_nav{

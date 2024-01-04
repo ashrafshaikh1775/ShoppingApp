@@ -10,6 +10,25 @@ echo "<div class='main_nav'>
         <img src=$path alt='no-preview' class='main_profile_pic'>
         </div>
         <a href='#'' class='main_seller_login'>Seller  Login </a>
-        <a href='#' class='main_cart'><i class='fas fa-shopping-cart'></i></a>
+        <button href='php/main_cart.php' id='main_cart_btn' class='main_cart'><i class='fas fa-shopping-cart'></i></button>
+        </div>
+        <div class='cart_outer_body' id='cart_outer_body_id'>
+        <div class='cart_inner_body'>
+            <div class='cart_close' id='cart_close_id'>
+            🗙
+            </div>
+        </div>
      </div>";
 ?>
+<script type="text/javascript">
+   document.querySelector('#main_cart_btn').addEventListener('click' , ()=>{
+      document.querySelector('#cart_outer_body_id').style.display = 'block';
+   
+   });
+   document.querySelector('#cart_outer_body_id').addEventListener('click',()=>{
+   document.querySelector('#cart_outer_body_id').style.display = 'none';
+   });
+   document.querySelector('#cart_close_id').addEventListener('click',()=>{
+   document.querySelector('#cart_outer_body_id').style.display = 'none';
+   });
+   </script>
