@@ -20,6 +20,5 @@
       ?>
      </div>
 	</div>
-  <?php $r = $_GET['username'];?>
 </body>
 </html>

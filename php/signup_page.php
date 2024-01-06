@@ -23,7 +23,7 @@
 
      		<input type="submit" id="btnsub" name="btnsub" class="signup_btn"value="SignUp"></input>
      	   </br></br>
-     		<a href="login_page.php">LogIn</a>
+     		<a href="login_page">LogIn</a>
      	</form>
      </div>
 	 
@@ -45,7 +45,7 @@
 				var serialize = $('form').serializeArray();
 				 serialize.push({name: "exe_file" ,value:'signup_file'});
 			$.ajax({
-				url:'../connection/connection.php',
+				url:'../connection/connection',
 				type:'POST',
 				data: serialize,
 				success: function(data){
@@ -53,7 +53,7 @@
 					if(data='Registered')
 					{
 						setTimeout(()=>{
-							location.href='login_page.php';
+							location.href='login_page';
 						},1000);
 					}
 				}

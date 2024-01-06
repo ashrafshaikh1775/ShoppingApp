@@ -133,10 +133,11 @@ if($_POST['exe_file'] == 'signin')
   $password =  mysqli_real_escape_string($conn->mysqli, $_POST["password"]);
   $result = $conn->select('users' , 'user_name , user_password' ,null,"user_name = " ."'$username'" .' And user_password = '."'$password'",null,null);
   if(count($result) > 0){
-       print_r($result[0][0]);
+      //  print_r($result[0][0]);
+      echo 'status 200';
   } 
   else
-  {echo 1;}  
+  {echo 'status 400';}  
 }
 
 ?>

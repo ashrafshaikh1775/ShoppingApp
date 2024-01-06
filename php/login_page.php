@@ -12,9 +12,9 @@
      <div class="login_form">
      	<form>
      		<input type="text" id="username" name="username" class="login_txt" placeholder="username"></input>
-     		<input type="text" id="password" name="password" class="login_txt"placeholder="password"></input></br></br>
+     		<input type="password" id="password" name="password" class="login_txt"placeholder="password"></input></br></br>
      		<input type="submit" id="btnsub" name="btnsub" class="login_btn" value="Login"></input></br></br>
-     		<a href="signup_page.php">SignUp</a>
+     		<a href="signup_page">SignUp</a>
      	</form>
      </div>
 	 <div class='error_message_div'>
@@ -31,13 +31,14 @@
 					if(username != '' && password !='')
                       {
 					$.ajax({
-					url: '../connection/connection.php',
+					url: '../connection/connection',
 					type:'POST',
 					data: serialize_array,
 					success: function(data){
-						if(data.length > 1)
+						if(data == 'status 200')
                           {
-                             location.href='../main_page.php?username=' + data;
+                            //  location.href='../main_page.php?username=' + data;
+							location.href='../main_page';
 						  }
 						  else
 						  {

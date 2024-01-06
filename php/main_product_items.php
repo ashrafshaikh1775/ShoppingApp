@@ -1,7 +1,7 @@
 <script type='text/javascript'>
                   $(document).ready(function(){ 
                   $.ajax({
-                  url : 'connection/connection.php',
+                  url : 'connection/connection',
                   type : 'POST', 
                   data : {exe_file:'load_file',find:null},
                   success : function(data){
@@ -12,7 +12,7 @@
               e.preventDefault();
               var search_val = $('#main_search').val();
               $.ajax({
-                  url : 'connection/connection.php',
+                  url : 'connection/connection',
                   type : 'POST', 
                   data : {exe_file:'submit_file' ,find:search_val},
                   success : function(data){
@@ -23,7 +23,7 @@
              $('#logo').on('click' , function (e){
               // e.preventDefault();
               $.ajax({
-                  url : 'connection/connection.php',
+                  url : 'connection/connection',
                   type : 'POST', 
                   data : {exe_file:'load_file' ,find:null},
                   success : function(data){
@@ -76,7 +76,7 @@
         // }
 
          function view_product(ref , id){
-                  location.href ="php/view_product.php?id="+ id;
+                  location.href ="php/view_product?id="+ id;
             }
 
 </script>
