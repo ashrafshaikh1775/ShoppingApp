@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Preview</title>
-    <link rel='stylesheet' type="text/css" href="../css/parts_css/main_navbar.css">
-     <link rel='stylesheet' type="text/css" href="../css/view_product.css">
+    <link rel='stylesheet' type="text/css" href="../front_pages/sub_pages1/navbar.css">
+     <link rel='stylesheet' type="text/css" href="../front_pages/view_product.css">
      
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width ,initial-scale=1.0" charset="utf-8">
@@ -12,7 +12,7 @@
     <div class="view_product_bg">
       <?php 
        $path ='../images/profile_pic/stephan.jpg';
-        include("parts_php/main_navbar.php");
+        include("sub_folder/navbar.php");
       ?>
       <?php
      $_POST['exe_file']=null;

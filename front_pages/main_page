@@ -1,4 +1,4 @@
-@import "parts_css/main_navbar.css";
+@import "sub_pages1/navbar.css";
 .main_bg{
   width: calc(100vw-10px);
 }

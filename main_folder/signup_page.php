@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>SignIn</title>
-	<link rel='stylesheet' type="text/css" href="../css/signup_page.css">
+	<link rel='stylesheet' type="text/css" href="../front_pages/signup_page.css">
     <meta name="viewport" content="width=device-width ,initial-scale=1.0" charset="utf-8">
 	<script src= 'https://code.jquery.com/jquery-3.6.0.min.js' integrity= 'sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='crossorigin='anonymous'> 
     </script>

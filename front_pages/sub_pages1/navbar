@@ -70,8 +70,9 @@ body{
      border: 2px solid ghostwhite;
     }
 }
+
 }
- h2,.main_login_div,.main_search_btn,.main_cart,.cart_outer_body:hover{
+ h2,.main_login_div,.main_search_btn,.main_cart,.cart_outer_body ,#sub_massage_box_btn:hover{
     cursor: pointer;
   }
   .cart_outer_body{
@@ -105,6 +106,45 @@ body{
   color: red;
   background-color: white;
   /* box-shadow: -1px -1px 1px 1px rgba(0,0,0,0.3); */
+}
+
+.main_massage_box{
+ width: 100vw;
+ height: 100vh;
+ background-color: rgba(0,0,0,0);
+ position: fixed;
+ z-index: 1;
+ display: none;
+ .sub_massage_box{
+  width: 250px;
+  height: 100px;
+  background-color: rgb(158, 158, 226);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  top: calc((100vh - 250px)/2);
+  left: calc((100vw - 250px)/2);
+  color: black;
+  div{
+    width: 100%;
+    text-align: center;
+    color: black;
+  }
+  #sub_massage_box_btn{
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 25px;
+    background-color: black;
+    color: rgb(158, 158, 226);
+  }
+ }
 }
 
 @media screen and (max-width: 1350px){

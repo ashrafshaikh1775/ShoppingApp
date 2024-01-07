@@ -76,7 +76,7 @@
         // }
 
          function view_product(ref , id){
-                  location.href ="php/view_product?id="+ id;
+                  location.href ="main_folder/view_product?id="+ id;
             }
 
 </script>

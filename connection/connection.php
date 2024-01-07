@@ -1,4 +1,5 @@
 <?php
+session_start();
 class conn{
 	public $server = 'localhost';
 	public $username = 'root';
@@ -48,20 +49,43 @@ class conn{
 	}
 
   public function insert($table , $rows=array() , $where = null){
-            $col = implode(', ',array_keys($rows)); 
-            $val = implode("', '",$rows); 
+      $col = implode(', ',array_keys($rows)); 
+      $val = implode("', '",$rows); 
       $query = "insert into $table ($col) values('$val')";
-      if($where != null){
-        $query.= " where $where";
+      if($where != null)
+      {
+         $query.= " where $where";
       }
       $execute = $this->mysqli->query($query);
       if($execute)
       {
         return 'Registered';
-      }else
+      }
+      else
       {
         return 'Not Registered';
       }
+  }
+  public function update($table , $rows=array() , $where = null){
+
+      foreach($rows as $col=>$val){
+       $args[]="$col='$val'";
+      }
+      $merge=implode(', ',$args);
+      $query = "update $table set $merge";
+    if($where != null)
+    {
+       $query.= " where $where";
+    }
+    $execute = $this->mysqli->query($query);
+    if($execute)
+    {
+      return $this->mysqli->affected_rows;
+    }
+    else
+    {
+      return 'Not Registered';
+    }
   }
 
   public function __destruct(){
@@ -131,13 +155,41 @@ if($_POST['exe_file'] == 'signin')
 {
   $username =  mysqli_real_escape_string($conn->mysqli, $_POST["username"]);
   $password =  mysqli_real_escape_string($conn->mysqli, $_POST["password"]);
-  $result = $conn->select('users' , 'user_name , user_password' ,null,"user_name = " ."'$username'" .' And user_password = '."'$password'",null,null);
+  $result = $conn->select('users' , 'user_id , user_name , user_password' ,null,"user_name = " ."'$username'" .' And user_password = '."'$password'",null,null);
   if(count($result) > 0){
-      //  print_r($result[0][0]);
-      echo 'status 200';
+      $_SESSION['uid']=$result[0][0];
+      $_SESSION['uname']=$result[0][1];
+      $update = $conn->update('users' ,['status' => 'on'],"user_name = " ."'$username'" .' And user_password = '."'$password'");
+      if(strlen($update) > 0){
+        echo 'status 200';
+      }
+      else
+      {
+        echo 'status 400';
+      }
+      
   } 
   else
   {echo 'status 400';}  
+}
+if($_POST['exe_file'] == 'logout')
+{
+  $uid =  mysqli_real_escape_string($conn->mysqli, $_POST["uid"]);
+  if(is_numeric($uid)){
+  $update = $conn->update('users' ,['status' => 'off'],"user_id=".$uid);
+  if(strlen($update) > 0){
+    $_SESSION['uname']='Login';
+    echo 'status 200';
+  }
+  else
+  {
+    echo 'status 400';
+  }
+}
+else
+{
+  echo 'status 400';
+}
 }
 
 ?>
