@@ -51,7 +51,12 @@ body{
      border: none;
      outline: none;
     }
-    
+    #upload_profile{
+      /* width: 50px; */
+      position: absolute;
+      z-index: 1;
+      display: none;
+   }
 }
 .main_login_div{
   display: flex;

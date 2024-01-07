@@ -16,11 +16,10 @@ session_start();
       <?php 
         $path ='images/profile_pic/stephan.jpg';
         include("main_folder/sub_folder/navbar.php");
+
       ?>
      <div class="main_product_items" id="main_product_items">
-      <?php 
-        include("main_folder/main_product_items.php");
-      ?>
+     <script type='text/javascript' src='files/product_items.js'></script>
      </div>
 	</div>
 </body>
