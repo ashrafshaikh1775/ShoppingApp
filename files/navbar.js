@@ -8,7 +8,6 @@ document.querySelector('#cart_outer_body_id').addEventListener('click', () => {
 document.querySelector('#cart_close_id').addEventListener('click', () => {
    document.querySelector('#cart_outer_body_id').style.display = 'none';
 });
-
 var uname = document.querySelector('.main_anchor_login').innerText;
 var url = document.querySelector('.main_anchor_login').href;
 if (uname != 'Login') {
@@ -22,25 +21,37 @@ if (uname != 'Login') {
 
    document.querySelector('.main_anchor_login').addEventListener('click', (e) => {
       e.preventDefault();
-      // var uid = '<?php echo $uid?>';
       $(document).ready(() => {
          $.ajax({
             url: 'connection/connection',
             type: 'POST',
             data: { uid: uid, exe_file: 'logout' },
             success: function (data) {
-               if (data == 'status 200') {
+               if (data == 'status 200'){
                   logout = 'Login';
-                  document.querySelector('.main_anchor_login').href = 'main_folder/login_page';
+                  // document.querySelector('.main_anchor_login').href = 'main_folder/login_page';
                   uname = 'Login';
+                  document.querySelector('.main_profile_pic').setAttribute('src', 'images/profile_pic/stephan.jpg');
+                  document.querySelector('#inner_massage').innerText = 'You Have Been Logout';
+                  document.querySelector('#child_massage').innerText = 'Successfully';
                   document.querySelector('.main_massage_box').style.display = 'block';
                   document.querySelector('.main_profile_pic').style.borderColor = 'ghostwhite';
+               } else {
+                  if(logout == 'Login')
+                  {
+                     location.href='main_folder/login_page';
+                  }else
+                  {
+                  document.querySelector('#inner_massage').innerText = "Coudn't Logout";
+                  document.querySelector('#child_massage').innerText = ' Try Again';
+                  document.querySelector('.main_massage_box').style.display = 'block';
+                  }
                }
             }
 
          });
       });
-   }, { once: true });
+   });
 
    document.querySelector('.main_anchor_login').addEventListener('mouseout', () => {
       document.querySelector('.main_anchor_login').innerText = uname;
@@ -48,18 +59,21 @@ if (uname != 'Login') {
 
    document.querySelector('#sub_massage_box_btn').addEventListener('click', () => {
       document.querySelector('.main_massage_box').style.display = 'none';
-   }, { once: true });
+   });
 
 
    var form = document.getElementById('form');
    var fileSelect = document.getElementById('upload_profile');
-      $('.main_profile_pic').on('click', () => {
+   
+   document.querySelector('.main_profile_pic').addEventListener('click', () => {
         $('#upload_profile').click();
-      $('#upload_profile').change(function(e) {
+      // $('#upload_profile').change(function(e) {
+document.querySelector('#upload_profile').addEventListener('change',function(e) {
       var files = fileSelect.files;
       var formData = new FormData();
       var file = files[0]; 
-      var filesize  = file.size;
+      var filename  = file.name;
+      var filename = filename.split('.');
        formData.append('upload_profile', file);
        formData.append('exe_file', 'upload_profile');
        formData.append('uid', uid);
@@ -70,9 +84,18 @@ if (uname != 'Login') {
            processData: false,
            contentType: false,
             success: function (data) {
-               //  alert(data);
+              alert(data);
+               if(data == 'status 200'){
+                  document.querySelector('.main_profile_pic').setAttribute('src','images/profile_pic/'+filename[0]);
+               }
+               else if(data == 'status 400' || data == 'status 500' || data == 'status 600'){
+                  document.querySelector('#inner_massage').innerText ="Can't Upload";
+                  document.querySelector('#child_massage').innerText ="Please Try Again";
+                  document.querySelector('.main_massage_box').style.display = 'block';
+               }
+               $("#upload_profile").val('');
             }
          });
-});
+},{once:true});
       });
 }

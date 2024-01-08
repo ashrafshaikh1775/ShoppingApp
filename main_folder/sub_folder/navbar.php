@@ -17,10 +17,10 @@ echo "<div class='main_nav'>
         <div class='main_login_div'>
         <a href='main_folder/login_page' class='main_anchor_login'>$uname</a>
   
-        <img src=$path alt='no-preview' class='main_profile_pic'>
+        <img src=$path alt='upload profile' class='main_profile_pic'>
         </div>
         <a href='#' class='main_seller_login'>Seller  Login </a>
-        <button href='main_folder/main_cart' id='main_cart_btn' class='main_cart'><i class='fas fa-shopping-cart'></i></button>
+        <button id='main_cart_btn' class='main_cart'><i class='fas fa-shopping-cart'></i></button>
         </div>
         <div class='cart_outer_body' id='cart_outer_body_id'>
         <div class='cart_inner_body'>
@@ -32,8 +32,8 @@ echo "<div class='main_nav'>
 ?>
 <div class='main_massage_box'>
    <div class='sub_massage_box'>
-      You Have Been Logout
-      <div> Successfully </div>
+       <div id='inner_massage'></div>
+      <div id='child_massage'></div>
       <button id="sub_massage_box_btn">Okay</button>
    </div>
 </div>

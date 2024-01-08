@@ -16,6 +16,7 @@ class conn
 
     if ($this->mysqli->connect_error) {
       echo 'Connection Failed' . $this->mysqli->connect_error;
+      exit();
     }
   }
 
