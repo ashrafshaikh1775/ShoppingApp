@@ -31,6 +31,10 @@ session_start();
               $loged_in = $_SESSION['loged_in'];
               $_SESSION['loged_in']='';
         }
+        else
+        {
+          $_SESSION['loged_in']='';
+        }
         include("main_folder/sub_folder/navbar.php");
       ?>
      <div class="main_product_items" id="main_product_items">
@@ -43,7 +47,6 @@ session_start();
       document.querySelector('#child_massage').innerText =' Successfully';
       document.querySelector('.main_massage_box').style.display = 'block';
       }
- 
       </script>
      </div>
 	</div>

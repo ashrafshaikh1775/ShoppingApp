@@ -8,6 +8,7 @@ if (isset($_SESSION['uname'])) {
 }
 $self = $_SERVER['PHP_SELF'];
 echo "<div class='main_nav'>
+      <div class='left_sidebar_icon'><i class='fa-solid fa-bars'></i></div>
      	<h2 id='logo'>Shopping App</h2>
         <form class='main_search_form' name='form' id='form' action='$self' method='POST' enctype='multipart/form-data'>
      	  <input type='text' id='main_search' name='main_search' class='main_search_txt'  placeholder='Type your product here'></input>
@@ -32,12 +33,26 @@ echo "<div class='main_nav'>
 ?>
 <div class='main_massage_box'>
    <div class='sub_massage_box'>
-       <div id='inner_massage'></div>
+      <div id='inner_massage'></div>
       <div id='child_massage'></div>
       <button id="sub_massage_box_btn">Okay</button>
    </div>
 </div>
-
+<div id='left_side_navbar'>
+   <div id='left_side_navbar_inner_container'>
+      <div id='close_left_side_navbar'>
+         🗙
+      </div>
+      <div class='left_sidebar_login_div'>
+         <img src='<?php echo $path ?>' alt='upload profile' class='left_sidebar_profile_pic'>
+         <a href='main_folder/login_page' class='left_sidebar_anchor_login'><?php echo $uname ?></a>
+      </div>
+         <ul class='left_sidebar_items_list'>
+            <li>Seller  Login</li>
+            <li>Cart <i class='fas fa-shopping-cart'></i></li>
+          </ul>
+   </div>
+</div>
 <script type='text/javascript'>
    var uid = '<?php echo $uid ?>';
 </script>
