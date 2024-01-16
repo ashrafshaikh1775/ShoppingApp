@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<?php
+session_start();
+?>
 <head>
 	<title>Login</title>
 	<link rel='stylesheet' type="text/css" href="../front_pages/login_page.css">
@@ -20,6 +23,12 @@
 	 <div class='error_message_div'>
      </div>
 	</div>
+	<?php
+	$return_to_this_Page = $_SESSION['return_to_this_Page'];
+	?>
+	<script>
+	    var return_to_this_Page = "<?php echo $return_to_this_Page;?>";
+	</script>
 	<script type='text/javascript' src='../files/login_page.js'></script>
 </body>
 </html>

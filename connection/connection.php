@@ -1,5 +1,5 @@
 <?php
-session_start();
+ session_start();
 class conn
 {
   public $server = 'localhost';
@@ -87,14 +87,18 @@ class func
 {
   public function call_loop($data_get)
   {
+    $_SESSION['items_id']= []; 
     if (count($data_get) > 0) {
+      $index=0;
       foreach ($data_get as $d) {
-        echo "<div class='main_page_items' id='$d[0]' onClick='view_product(this , $d[0])'>
+       array_push($_SESSION['items_id'],$d[0]);
+        echo "<div class='main_page_items' onClick='view_product(this , $index)'>
       <img src=$d[2] alt='no-preview'>
-      <div class='main_proname_div'>$d[1] </div>
+      <div class='main_proname_div'> $d[1] </div>
       <div class='main_original_proprice'>₹$d[4]</div>
       <div class='main_proprice_div'>₹$d[5]  <span>$d[6]% off</span></div>
       </div>";
+      $index++;
       }
     } else {
       echo "<div class='no_result'> No Result Found !!!</div>";

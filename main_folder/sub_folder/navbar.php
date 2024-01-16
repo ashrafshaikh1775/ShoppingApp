@@ -16,7 +16,7 @@ echo "<div class='main_nav'>
         <input type='file' name='upload_profile' id='upload_profile'></input>
         </form>
         <div class='main_login_div'>
-        <a href='main_folder/login_page' class='main_anchor_login'>$uname</a>
+        <a href='$go_to_login_Page' class='main_anchor_login'>$uname</a>
   
         <img src=$path alt='upload profile' class='main_profile_pic'>
         </div>
@@ -45,7 +45,7 @@ echo "<div class='main_nav'>
       </div>
       <div class='left_sidebar_login_div'>
          <img src='<?php echo $path ?>' alt='upload profile' class='left_sidebar_profile_pic'>
-         <a href='main_folder/login_page' class='left_sidebar_anchor_login'><?php echo $uname ?></a>
+         <a href='<?php echo $go_to_login_Page;?>' class='left_sidebar_anchor_login'><?php echo $uname ?></a>
       </div>
          <ul class='left_sidebar_items_list'>
             <li>Seller  Login</li>
@@ -55,6 +55,9 @@ echo "<div class='main_nav'>
 </div>
 <script type='text/javascript'>
    var uid = '<?php echo $uid ?>';
+   var img_default_path = '<?php echo $img_default_path ;?>';
+   var go_to_cnn ='<?php echo $go_to_cnn ;?>';
+   var Path_to_set_img ='<?php echo $Path_to_set_img ;?>';
+   var go_to_login_Page = '<?php echo $go_to_login_Page ;?>';
 </script>
-<script type='text/javascript' src='./files/navbar.js'>
-</script>
+<script type='text/javascript' src=<?php echo $src?>></script>

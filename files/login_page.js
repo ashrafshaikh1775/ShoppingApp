@@ -14,7 +14,7 @@ $(document).ready(()=>{
             success: function(data){
                 if(data == 'status 200')
                   {
-                    location.href='../main_page';
+                    location.replace(return_to_this_Page);
                   }
                   else
                   {

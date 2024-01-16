@@ -15,6 +15,7 @@ document.querySelector('.cart_inner_body').addEventListener('click', (e) => {
 
 var uname = document.querySelector('.main_anchor_login').innerText;
 var url = document.querySelector('.main_anchor_login').href;
+
 if (uname != 'Login') {
    logout = 'Logout';
 
@@ -38,15 +39,15 @@ if (uname != 'Login') {
       e.preventDefault();
       $(document).ready(() => {
          $.ajax({
-            url: 'connection/connection',
+            url: go_to_cnn,
             type: 'POST',
             data: { uid: uid, exe_file: 'logout' },
             success: function (data) {
                if (data == 'status 200') {
                   logout = 'Login';
                   uname = 'Login';
-                  document.querySelector('.main_profile_pic').setAttribute('src', 'images/profile_pic/stephan.jpg');
-                  document.querySelector('.left_sidebar_profile_pic').setAttribute('src', 'images/profile_pic/stephan.jpg');
+                  document.querySelector('.main_profile_pic').setAttribute('src', img_default_path);
+                  document.querySelector('.left_sidebar_profile_pic').setAttribute('src',img_default_path);
 
                   mouseout(e, '.main_anchor_login');
                   mouseout(e, '.left_sidebar_anchor_login');
@@ -58,7 +59,7 @@ if (uname != 'Login') {
                   document.querySelector('.left_sidebar_profile_pic').style.borderColor = 'ghostwhite';
                } else {
                   if (logout == 'Login') {
-                     location.href = 'main_folder/login_page';
+                     location.href = go_to_login_Page;
                   } else {
                      document.querySelector('#inner_massage').innerText = "Coudn't Logout";
                      document.querySelector('#child_massage').innerText = ' Try Again';
@@ -91,6 +92,7 @@ if (uname != 'Login') {
    document.querySelector('.left_sidebar_profile_pic').addEventListener('click', (event) => update_pic(event));
 
    function update_pic(event) {
+      if (uname != 'Login') {
       $('#upload_profile').click();
       // $('#upload_profile').change(function(e) {
       document.querySelector('#upload_profile').addEventListener('change', function (e) {
@@ -103,15 +105,15 @@ if (uname != 'Login') {
          formData.append('exe_file', 'upload_profile');
          formData.append('uid', uid);
          $.ajax({
-            url: 'connection/connection',
+            url: go_to_cnn,
             type: 'POST',
             data: formData,
             processData: false,
             contentType: false,
             success: function (data) {
                if (data == 'status 200') {
-                  document.querySelector('.main_profile_pic').setAttribute('src', 'images/profile_pic/' + filename[0]);
-                  document.querySelector('.left_sidebar_profile_pic').setAttribute('src', 'images/profile_pic/' + filename[0]);
+                  document.querySelector('.main_profile_pic').setAttribute('src', Path_to_set_img + filename[0]);
+                  document.querySelector('.left_sidebar_profile_pic').setAttribute('src', Path_to_set_img + filename[0]);
                }
                else if (data == 'status 400' || data == 'status 500' || data == 'status 600') {
                   document.querySelector('#inner_massage').innerText = "Can't Upload";
@@ -122,6 +124,7 @@ if (uname != 'Login') {
             }
          });
       }, { once: true });
+   }
    }
 }
 

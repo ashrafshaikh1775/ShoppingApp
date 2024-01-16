@@ -10,7 +10,15 @@ class add_profile
         $this->uid = $conn->mysqli->real_escape_string($uid);
         $this->file_ext =  basename(pathinfo($this->file_name, PATHINFO_EXTENSION));
         $this->filename =  basename(pathinfo($this->file_name, PATHINFO_FILENAME));
-        if (!file_exists('../images/profile_pic/' . $this->filename)) {
+        // if (!file_exists('../images/profile_pic/' . $this->filename)) {
+  
+        // $files = glob('../images/profile_pic/' . '/*');
+        // foreach ($files as $file) {
+        //     if (is_file($file))
+        //         unlink($file);
+        //   } 
+        
+
             if (in_array($this->file_ext, $this->allowed_ext)) {
                 $this->result = $conn->update('users', ['profile_pic' => $this->filename], 'user_id=' . $this->uid);
                 if ($this->result > 0) {
@@ -31,7 +39,7 @@ class add_profile
                     } else {
                         if (move_uploaded_file($file_name['tmp_name'], '../images/profile_pic/' . $this->filename)) {
                             $_SESSION['image_name'] = $this->filename;
-                            echo 'status 200';
+                             echo 'status 200';
                         } else {
                             $conn->mysqli->rollback();
                             echo 'status 500';
@@ -41,13 +49,16 @@ class add_profile
                 } else {
                     $conn->mysqli->rollback();
                     $conn->mysqli->autocommit(True);
-                    echo 'status 400';
+                    echo 'status 200';
                 }
             } else {
                 echo 'Unsupported Image Type';
             }
-        } else {
-            echo 'status 200';
-        }
+        // }
+        //  else {
+        //     echo 'status 200';
+        //  }
+        
     }
 }
+?>

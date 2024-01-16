@@ -6,7 +6,7 @@ $(document).ready(function(){
     success : function(data){
           $('.main_product_items').html(data); 
     }
-})
+});
 $('#main_btn').on('click' , function (e){
 e.preventDefault();
 var search_val = $('#main_search').val();
@@ -17,7 +17,7 @@ $.ajax({
     success : function(data){
          $('.main_product_items').html(data); 
     }
-})
+});
 });
 $('#logo').on('click' , function (e){
 $.ajax({
@@ -28,9 +28,18 @@ $.ajax({
          $('.main_product_items').html(data); 
          $('#main_search').val("");
     }
-})
+});
 });
 }); 
 function view_product(ref , id){
-    location.href ="main_folder/view_product?id="+ id;
+    // $(document).ready(function(){ 
+    $.ajax({
+        url : 'main_page',
+        type : 'POST',
+        data : {id}
+    });
+    location.href ="main_folder/view_product";
+// }); 
+    // alert('hy');
+    // location.href ="main_folder/view_product?id="+ id;
 }

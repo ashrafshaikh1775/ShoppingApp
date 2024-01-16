@@ -19,3 +19,4 @@ class product_items
         $func->call_loop($this->data_get);
     }
 }
+?>
