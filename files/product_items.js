@@ -32,14 +32,11 @@ $.ajax({
 });
 }); 
 function view_product(ref , id){
-    // $(document).ready(function(){ 
     $.ajax({
         url : 'main_page',
         type : 'POST',
         data : {id}
     });
+    // location.replace("main_folder/view_product");
     location.href ="main_folder/view_product";
-// }); 
-    // alert('hy');
-    // location.href ="main_folder/view_product?id="+ id;
 }

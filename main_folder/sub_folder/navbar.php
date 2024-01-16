@@ -30,7 +30,9 @@ echo "<div class='main_nav'>
             </div>
         </div>
      </div>";
+   include($add_navigate_route);
 ?>
+
 <div class='main_massage_box'>
    <div class='sub_massage_box'>
       <div id='inner_massage'></div>
@@ -45,19 +47,19 @@ echo "<div class='main_nav'>
       </div>
       <div class='left_sidebar_login_div'>
          <img src='<?php echo $path ?>' alt='upload profile' class='left_sidebar_profile_pic'>
-         <a href='<?php echo $go_to_login_Page;?>' class='left_sidebar_anchor_login'><?php echo $uname ?></a>
+         <a href='<?php echo $go_to_login_Page; ?>' class='left_sidebar_anchor_login'><?php echo $uname ?></a>
       </div>
-         <ul class='left_sidebar_items_list'>
-            <li>Seller  Login</li>
-            <li>Cart <i class='fas fa-shopping-cart'></i></li>
-          </ul>
+      <ul class='left_sidebar_items_list'>
+         <li>Seller Login</li>
+         <li>Cart <i class='fas fa-shopping-cart'></i></li>
+      </ul>
    </div>
 </div>
 <script type='text/javascript'>
    var uid = '<?php echo $uid ?>';
-   var img_default_path = '<?php echo $img_default_path ;?>';
-   var go_to_cnn ='<?php echo $go_to_cnn ;?>';
-   var Path_to_set_img ='<?php echo $Path_to_set_img ;?>';
-   var go_to_login_Page = '<?php echo $go_to_login_Page ;?>';
+   var img_default_path = '<?php echo $img_default_path; ?>';
+   var go_to_cnn = '<?php echo $go_to_cnn; ?>';
+   var Path_to_set_img = '<?php echo $Path_to_set_img; ?>';
+   var go_to_login_Page = '<?php echo $go_to_login_Page; ?>';
 </script>
-<script type='text/javascript' src=<?php echo $src?>></script>
+<script type='text/javascript' src=<?php echo $src ?>></script>

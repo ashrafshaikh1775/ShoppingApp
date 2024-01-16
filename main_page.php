@@ -3,6 +3,7 @@
 <?php
 session_start();
 ?>
+
 <head>
   <title>Menu</title>
   <link rel='stylesheet' type="text/css" href="front_pages/sub_pages2/main_page_responsive.css">
@@ -11,6 +12,7 @@ session_start();
   </script>
   <meta name="viewport" content="width=device-width ,initial-scale=1.0" charset="utf-8">
 </head>
+
 <body>
   <div class="main_bg">
     <?php
@@ -29,17 +31,24 @@ session_start();
     } else {
       $_SESSION['loged_in'] = '';
     }
-    $src='./files/navbar.js';
+    $src = './files/navbar.js';
     $go_to_login_Page = 'main_folder/login_page';
     $_SESSION['return_to_this_Page'] = '../main_page';
     $img_default_path = 'images/default_pic/default_pic';
-    $Path_to_set_img = 'images/profile_pic/' ;
-    $go_to_cnn ='connection/connection';
+    $Path_to_set_img = 'images/profile_pic/';
+    $go_to_cnn = 'connection/connection';
+    $add_navigate_route = 'navigate_route_page.php';
+    $add_navigate_route_css = 'front_pages/sub_pages1/navigate_route_page.css';
+    $add_navigate_route_js = 'files/navigate_route_page.js';
+    $navigate_at_home_page = 'main_page';
     include("main_folder/sub_folder/navbar.php");
+
     ?>
     <div class="main_product_items" id="main_product_items">
       <script type='text/javascript' src='files/product_items.js'></script>
       <script>
+        navigate_links('none', 'none', 'none');
+        set_path_to_navigate_links('view_product');
         var loged_in = '<?php echo $loged_in; ?>';
         if (loged_in != '') {
           document.querySelector('#inner_massage').innerText = ' You are loged in';
@@ -48,7 +57,7 @@ session_start();
         }
       </script>
       <?php
-      
+
       if (isset($_SESSION['items_id'])) {
         if (isset($_POST['id'])) {
           $_SESSION['found_id'] = $_SESSION['items_id'][$_POST['id']];
@@ -58,4 +67,5 @@ session_start();
     </div>
   </div>
 </body>
+
 </html>

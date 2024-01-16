@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 <?php
-  $_POST['exe_file'] = null;
-  include('../connection/connection.php');
+$_POST['exe_file'] = null;
+include('../connection/connection.php');
 ?>
+
 <head>
   <title>Preview</title>
   <link rel='stylesheet' type="text/css" href="../front_pages/sub_pages1/navbar.css">
@@ -18,31 +19,38 @@
 <body>
   <div class="view_product_bg">
     <?php
-  // echo $_SESSION['image_name'];
-        if (isset($_SESSION['image_name'])) {
-          if ($_SESSION['image_name'] != '') {
-            $path = '../images/profile_pic/' . $_SESSION['image_name'];
-          } else {
-            $path = '../images/default_pic/default_pic';
-          }
-        } else {
-          $path = '../images/default_pic/default_pic';
-        }
-        if (isset($_SESSION['loged_in'])) {
-          $loged_in = $_SESSION['loged_in'];
-          $_SESSION['loged_in'] = '';
-        } else {
-          $_SESSION['loged_in'] = '';
-        }
+    if (isset($_SESSION['image_name'])) {
+      if ($_SESSION['image_name'] != '') {
+        $path = '../images/profile_pic/' . $_SESSION['image_name'];
+      } else {
+        $path = '../images/default_pic/default_pic';
+      }
+    } else {
+      $path = '../images/default_pic/default_pic';
+    }
+    if (isset($_SESSION['loged_in'])) {
+      $loged_in = $_SESSION['loged_in'];
+      $_SESSION['loged_in'] = '';
+    } else {
+      $_SESSION['loged_in'] = '';
+    }
     $src = '../files/navbar.js';
     $go_to_login_Page = 'login_page';
     $_SESSION['return_to_this_Page'] = './view_product';
     $img_default_path = '../images/default_pic/default_pic';
-    $Path_to_set_img = '../images/profile_pic/' ;
-    $go_to_cnn ='../connection/connection';
+    $Path_to_set_img = '../images/profile_pic/';
+    $go_to_cnn = '../connection/connection';
+    $add_navigate_route = 'sub_folder/navigate_route_page.php';
+    $add_navigate_route_css = '../front_pages/sub_pages1/navigate_route_page.css';
+    $add_navigate_route_js = '../files/navigate_route_page.js';
+    $navigate_at_home_page = '../main_page';
     include("sub_folder/navbar.php");
-
-
+    ?>
+    <script>
+      navigate_links('inline-block', 'none', 'none');
+      set_path_to_navigate_links('view_product');
+    </script>
+    <?php
     $data_get = $conn->select('main_page', '*', null, 'product_id=' . $_SESSION['found_id'], null, null);
     ?>
     <div class="view_product_div">
@@ -86,4 +94,5 @@
     </div>
   </div>
 </body>
+
 </html>
