@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<?php
+session_start();
+?>
 <head>
 	<title>SignIn</title>
 	<link rel='stylesheet' type="text/css" href="../front_pages/signup_page.css">
@@ -30,6 +33,18 @@
 	 <div class='error_message_div'>
      </div>
 	</div>
+	<?php
+	$return_to_this_Page = $_SESSION['return_to_this_Page'];
+	$add_navigate_route = 'sub_folder/navigate_route_page.php';
+    $add_navigate_route_css = '../front_pages/sub_pages1/navigate_route_page.css';
+    $add_navigate_route_js = '../files/navigate_route_page.js';
+    $navigate_at_home_page = '../main_page';
+	$name_of_page = 'signup';
+	include($add_navigate_route);
+	?>
+	<script>
+	    var return_to_this_Page = "<?php echo $return_to_this_Page;?>";
+	</script>
 	<script type='text/javascript'  src='../files/signup_page.js'></script>
 </body>
 </html>

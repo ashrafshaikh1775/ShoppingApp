@@ -44,13 +44,9 @@ include('../connection/connection.php');
     $add_navigate_route_css = '../front_pages/sub_pages1/navigate_route_page.css';
     $add_navigate_route_js = '../files/navigate_route_page.js';
     $navigate_at_home_page = '../main_page';
+    $name_of_page = 'view_product';
+    $return_to_this_Page=$_SESSION['return_to_this_Page'];
     include("sub_folder/navbar.php");
-    ?>
-    <script>
-      navigate_links('inline-block', 'none', 'none');
-      set_path_to_navigate_links('view_product');
-    </script>
-    <?php
     $data_get = $conn->select('main_page', '*', null, 'product_id=' . $_SESSION['found_id'], null, null);
     ?>
     <div class="view_product_div">

@@ -41,14 +41,14 @@ session_start();
     $add_navigate_route_css = 'front_pages/sub_pages1/navigate_route_page.css';
     $add_navigate_route_js = 'files/navigate_route_page.js';
     $navigate_at_home_page = 'main_page';
+    $name_of_page = 'main_page';
+    $return_to_this_Page=$_SESSION['return_to_this_Page'];
     include("main_folder/sub_folder/navbar.php");
 
     ?>
     <div class="main_product_items" id="main_product_items">
       <script type='text/javascript' src='files/product_items.js'></script>
       <script>
-        navigate_links('none', 'none', 'none');
-        set_path_to_navigate_links('view_product');
         var loged_in = '<?php echo $loged_in; ?>';
         if (loged_in != '') {
           document.querySelector('#inner_massage').innerText = ' You are loged in';
