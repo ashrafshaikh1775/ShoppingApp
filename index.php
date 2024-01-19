@@ -6,7 +6,7 @@ session_start();
 
 <head>
   <title>Menu</title>
-  <link rel='stylesheet' type="text/css" href="front_pages/sub_pages2/main_page_responsive.css">
+  <link rel='stylesheet' type="text/css" href="front_pages/sub_pages2/index_responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'>
   </script>
@@ -33,15 +33,15 @@ session_start();
     }
     $src = './files/navbar.js';
     $go_to_login_Page = 'main_folder/login_page';
-    $_SESSION['return_to_this_Page'] = '../main_page';
+    $_SESSION['return_to_this_Page'] = '../index';
     $img_default_path = 'images/default_pic/default_pic';
     $Path_to_set_img = 'images/profile_pic/';
     $go_to_cnn = 'connection/connection';
     $add_navigate_route = 'navigate_route_page.php';
     $add_navigate_route_css = 'front_pages/sub_pages1/navigate_route_page.css';
     $add_navigate_route_js = 'files/navigate_route_page.js';
-    $navigate_at_home_page = 'main_page';
-    $name_of_page = 'main_page';
+    $navigate_at_home_page = 'index';
+    $name_of_page = 'index';
     $return_to_this_Page=$_SESSION['return_to_this_Page'];
     include("main_folder/sub_folder/navbar.php");
 

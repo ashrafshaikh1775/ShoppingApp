@@ -1,7 +1,7 @@
 <?php
 class add_profile
 {
-    private $file_name, $allowed_ext, $result, $uid, $file_ext, $file, $tmp_name, $filename;
+    private $file_name, $allowed_ext, $result, $uid, $file_ext,$filename;
     public function __construct($conn, $file_name, $uid)
     {
         $conn->mysqli->autocommit(FALSE);

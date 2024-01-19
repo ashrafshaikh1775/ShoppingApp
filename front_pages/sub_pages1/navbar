@@ -9,7 +9,8 @@ body {
 
 .main_nav {
   width: 100vw;
-  background: rgb(159, 159, 199);
+  /* background: rgb(32, 209, 194); */
+  background:  rgb(159, 159, 199);
   display: flex;
   align-items: center;
   justify-content: center;

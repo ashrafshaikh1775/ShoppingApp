@@ -8,7 +8,7 @@ include('../connection/connection.php');
 <head>
   <title>Preview</title>
   <link rel='stylesheet' type="text/css" href="../front_pages/sub_pages1/navbar.css">
-  <link rel='stylesheet' type="text/css" href="../front_pages/view_product.css">
+  <link rel='stylesheet' type="text/css" href="../front_pages/sub_pages2/view_product_responsive.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'>
@@ -43,7 +43,7 @@ include('../connection/connection.php');
     $add_navigate_route = 'sub_folder/navigate_route_page.php';
     $add_navigate_route_css = '../front_pages/sub_pages1/navigate_route_page.css';
     $add_navigate_route_js = '../files/navigate_route_page.js';
-    $navigate_at_home_page = '../main_page';
+    $navigate_at_home_page = '../index';
     $name_of_page = 'view_product';
     $return_to_this_Page=$_SESSION['return_to_this_Page'];
     include("sub_folder/navbar.php");
@@ -76,10 +76,10 @@ include('../connection/connection.php');
             <?php echo $data_get[0][6] ?>% off
           </span>
         </h1>
-        <div class="view_product_description">
-          <h1>
+        <h1 id='h1_detail'>
             Details:
           </h1>
+        <div class="view_product_description">
           <?php echo $data_get[0][3] ?>
         </div>
       </div>

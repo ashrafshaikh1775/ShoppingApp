@@ -1,18 +1,18 @@
-if (name_of_page == 'main_page') {
+if (name_of_page == 'index') {
     navigate_links('inline-block', 'none', 'inline-block', 'inline-block');
-    set_path_to_navigate_links('main_page', 'view_product', 'main_folder/login_page', 'main_folder/signup_page');
+    set_path_to_navigate_links('', 'view_product', 'main_folder/login_page', 'main_folder/signup_page');
 } else if (name_of_page == 'view_product') {
     navigate_links('inline-block', 'inline-block', 'inline-block', 'inline-block');
-    set_path_to_navigate_links('../main_page', 'view_product', 'login_page', 'signup_page');
+    set_path_to_navigate_links('../', 'view_product', 'login_page', 'signup_page');
 }
 else {
     if (return_to_this_Page == './view_product') {
         navigate_links('inline-block', 'inline-block', 'inline-block', 'inline-block');
-        set_path_to_navigate_links('../main_page', 'view_product', 'login_page', 'signup_page');
+        set_path_to_navigate_links('../', 'view_product', 'login_page', 'signup_page');
     }
     else {
         navigate_links('inline-block', 'none', 'inline-block', 'inline-block');
-        set_path_to_navigate_links('../main_page', 'view_product', 'login_page', 'signup_page');
+        set_path_to_navigate_links('../', 'view_product', 'login_page', 'signup_page');
     }
 }
 function navigate_links(home, view, login, signup) {

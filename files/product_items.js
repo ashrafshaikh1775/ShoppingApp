@@ -33,7 +33,7 @@ $.ajax({
 }); 
 function view_product(ref , id){
     $.ajax({
-        url : 'main_page',
+        url : 'index',
         type : 'POST',
         data : {id}
     });

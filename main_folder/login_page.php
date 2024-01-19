@@ -28,7 +28,7 @@ session_start();
 	$add_navigate_route = 'sub_folder/navigate_route_page.php';
     $add_navigate_route_css = '../front_pages/sub_pages1/navigate_route_page.css';
     $add_navigate_route_js = '../files/navigate_route_page.js';
-    $navigate_at_home_page = '../main_page';
+    $navigate_at_home_page = '../index';
 	$name_of_page = 'login';
 	include($add_navigate_route);
 	?>
